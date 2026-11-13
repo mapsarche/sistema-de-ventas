@@ -1,0 +1,42 @@
+<div style="padding: 20px;">
+  <h2>Gestión de Categorías</h2>
+
+  <!-- Formulario de Nueva Categoría -->
+  <div style="margin-bottom: 20px; background: #f4f4f4; padding: 15px; border-radius: 5px;">
+    <h3>Registrar Nueva Categoría</h3>
+    
+    <div style="margin-bottom: 10px;">
+      <label>Nombre: </label>
+      <input type="text" [(ngModel)]="nuevaCategoria.nombre" placeholder="Nombre de la categoría" style="padding: 5px; width: 200px;" />
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label>Descripción: </label>
+      <input type="text" [(ngModel)]="nuevaCategoria.descripcion" placeholder="Descripción" style="padding: 5px; width: 200px;" />
+    </div>
+
+    <button type="button" (click)="guardarCategoria()" style="padding: 6px 15px; background: #28a745; color: white; border: none; border-radius: 3px; font-weight: bold;">Registrar Categoría</button>
+  </div>
+
+  <!-- Lista de Categorías -->
+  <table border="1" cellpadding="10" style="width: 100%; border-collapse: collapse;">
+    <thead>
+      <tr style="background: #ddd;">
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of categorias">
+        <td>{{ c.id }}</td>
+        <td>{{ c.nombre }}</td>
+        <td>{{ c.descripcion }}</td>
+        <td>
+          <button type="button" (click)="eliminarCategoria(c.id!)" style="background: #dc3545; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

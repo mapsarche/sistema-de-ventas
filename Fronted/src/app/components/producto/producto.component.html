@@ -1,0 +1,56 @@
+<div style="padding: 20px;">
+  <h2>Gestión de Productos</h2>
+
+  <!-- Formulario de Nuevo Producto -->
+  <div style="margin-bottom: 20px; background: #f4f4f4; padding: 15px; border-radius: 5px;">
+    <h3>Registrar Nuevo Producto</h3>
+    
+    <div style="margin-bottom: 10px;">
+      <label>Nombre: </label>
+      <input type="text" [(ngModel)]="nuevoProducto.nombre" placeholder="Nombre del producto" style="padding: 5px; width: 200px;" />
+    </div>
+
+    <div style="margin-bottom: 10px;">
+      <label>Descripción: </label>
+      <input type="text" [(ngModel)]="nuevoProducto.descripcion" placeholder="Descripción" style="padding: 5px; width: 200px;" />
+    </div>
+
+    <div style="margin-bottom: 10px;">
+      <label>Precio: </label>
+      <input type="number" [(ngModel)]="nuevoProducto.precio" placeholder="0.00" style="padding: 5px; width: 100px;" />
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label>Stock: </label>
+      <input type="number" [(ngModel)]="nuevoProducto.stock" placeholder="0" style="padding: 5px; width: 100px;" />
+    </div>
+
+    <button type="button" (click)="guardarProducto()" style="padding: 6px 15px; background: #28a745; color: white; border: none; border-radius: 3px; font-weight: bold;">Registrar Producto</button>
+  </div>
+
+  <!-- Lista de Productos -->
+  <table border="1" cellpadding="10" style="width: 100%; border-collapse: collapse;">
+    <thead>
+      <tr style="background: #ddd;">
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Precio</th>
+        <th>Stock</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of productos">
+        <td>{{ p.id }}</td>
+        <td>{{ p.nombre }}</td>
+        <td>{{ p.descripcion }}</td>
+        <td>${{ p.precio }}</td>
+        <td>{{ p.stock }}</td>
+        <td>
+          <button type="button" (click)="eliminarProducto(p.id!)" style="background: #dc3545; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

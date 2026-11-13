@@ -1,0 +1,51 @@
+<div style="padding: 20px;">
+  <h2>Gestión de Ventas / Órdenes</h2>
+
+  <!-- Formulario de Nueva Venta -->
+  <div style="margin-bottom: 20px; background: #f4f4f4; padding: 15px; border-radius: 5px;">
+    <h3>Registrar Nueva Venta</h3>
+    
+    <div style="margin-bottom: 10px;">
+      <label>Usuario: </label>
+      <select [(ngModel)]="nuevaOrden.userId" style="padding: 5px; width: 220px;">
+        <option value="0" disabled>Seleccione un usuario</option>
+        <option *ngFor="let u of users" [value]="u.id">{{ u.nombre || u.email }} (ID: {{ u.id }})</option>
+      </select>
+    </div>
+
+    <h4>Productos en la orden:</h4>
+    <div *ngFor="let item of nuevaOrden.items; let i = index" style="margin-bottom: 8px;">
+      <select [(ngModel)]="item.productId" style="margin-right: 10px; padding: 5px;">
+        <option value="0" disabled>Seleccione un producto</option>
+        <option *ngFor="let p of productos" [value]="p.id">{{ p.nombre }} (${{ p.precio }})</option>
+      </select>
+
+      <input type="number" [(ngModel)]="item.cantidad" min="1" placeholder="Cant" style="width: 60px; margin-right: 10px; padding: 5px;" />
+      
+      <button type="button" (click)="eliminarItem(i)" style="background: #ff4d4d; color: white; border: none; padding: 5px 10px; border-radius: 3px;">X</button>
+    </div>
+
+    <button type="button" (click)="agregarItem()" style="margin-right: 10px; padding: 5px 10px; background: #ccc; border: none; border-radius: 3px;">+ Agregar otro producto</button>
+    <button type="button" (click)="guardarOrden()" style="padding: 6px 15px; background: #28a745; color: white; border: none; border-radius: 3px; font-weight: bold;">Procesar Venta</button>
+  </div>
+
+  <!-- Historial de Órdenes -->
+  <table border="1" cellpadding="10" style="width: 100%; border-collapse: collapse;">
+    <thead>
+      <tr style="background: #ddd;">
+        <th>ID Orden</th>
+        <th>ID Usuario</th>
+        <th>Total</th>
+        <th>Fecha</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let o of orders">
+        <td>{{ o.id }}</td>
+        <td>{{ o.userId || o.user_id }}</td>
+        <td>${{ o.total | number:'1.2-2' }}</td>
+        <td>{{ o.fecha || o.createdAt | date:'medium' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

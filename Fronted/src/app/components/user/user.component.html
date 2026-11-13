@@ -1,0 +1,58 @@
+<div style="padding: 20px;">
+  <h2>Gestión de Usuarios</h2>
+
+  <!-- Formulario de Nuevo Usuario -->
+  <div style="margin-bottom: 20px; background: #f4f4f4; padding: 15px; border-radius: 5px;">
+    <h3>Registrar Nuevo Usuario</h3>
+    
+<div style="margin-bottom: 10px;">
+      <label>Nombre: </label>
+      <input type="text" [(ngModel)]="nuevoUser.nombre" placeholder="Nombre" style="padding: 5px; width: 200px;" />
+    </div>
+
+    <div style="margin-bottom: 10px;">
+      <label>Apellido: </label>
+      <input type="text" [(ngModel)]="nuevoUser.apellido" placeholder="Apellido" style="padding: 5px; width: 200px;" />
+    </div>
+
+    <div style="margin-bottom: 10px;">
+      <label>Correo (Email): </label>
+      <input type="email" [(ngModel)]="nuevoUser.email" placeholder="correo@ejemplo.com" style="padding: 5px; width: 200px;" />
+    </div>
+
+    <div style="margin-bottom: 10px;">
+      <label>Contraseña: </label>
+      <input type="password" [(ngModel)]="nuevoUser.password" placeholder="Contraseña" style="padding: 5px; width: 200px;" />
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label>Rol: </label>
+      <select [(ngModel)]="nuevoUser.rol" style="padding: 5px;">
+        <option value="CLIENTE">CLIENTE</option>
+        <option value="ADMIN">ADMIN</option>
+      </select>
+    </div>
+
+    <button type="button" (click)="guardarUser()" style="padding: 6px 15px; background: #28a745; color: white; border: none; border-radius: 3px; font-weight: bold;">Registrar Usuario</button>
+  </div>
+
+  <!-- Lista de Usuarios -->
+  <table border="1" cellpadding="10" style="width: 100%; border-collapse: collapse;">
+    <thead>
+      <tr style="background: #ddd;">
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Correo</th>
+        <th>Rol</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of users">
+        <td>{{ u.id }}</td>
+        <td>{{ u.nombre || 'Sin nombre' }}</td>
+        <td>{{ u.email }}</td>
+        <td>{{ u.rol || 'CLIENTE' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

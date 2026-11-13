@@ -1,0 +1,26 @@
+{
+    "workbench.colorCustomizations": {
+        "[Default Dark Modern]": {
+            "tab.activeBorderTop": "#00FF00",
+            "tab.unfocusedActiveBorderTop": "#00FF0088",
+            "textCodeBlock.background": "#00000055"
+        },
+        "editor.wordHighlightStrongBorder": "#FF6347",
+        "editor.wordHighlightBorder": "#FFD700",
+        "editor.selectionHighlightBorder": "#A9A9A9",
+        "activityBar.background": "#15158E",
+        "titleBar.activeBackground": "#1E1EC7",
+        "titleBar.activeForeground": "#FCFCFF",
+        "titleBar.inactiveBackground": "#15158E",
+        "titleBar.inactiveForeground": "#FCFCFF",
+        "statusBar.background": "#15158E",
+        "statusBar.foreground": "#FCFCFF",
+        "statusBar.debuggingBackground": "#15158E",
+        "statusBar.debuggingForeground": "#FCFCFF",
+        "statusBar.noFolderBackground": "#15158E",
+        "statusBar.noFolderForeground": "#FCFCFF"
+    },
+    "cSpell.words": [
+        "nombre"
+    ]
+}
